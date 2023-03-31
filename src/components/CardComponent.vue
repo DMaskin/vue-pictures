@@ -8,7 +8,8 @@
         <p class="ma-0">Сандро Боттичелли</p>
       </v-row>
       <v-row class="ma-0 pa-0">
-        <v-col class="d-flex justify-center align-center">
+        <v-col class="d-flex flex-column justify-center align-center">
+          <p class="price discount ma-0">2 000 000 $</p>
           <p class="price ma-0">1 000 000 $</p>
         </v-col>
         <v-col class="d-flex align-center justify-center">
@@ -51,7 +52,12 @@ img {
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+}
 
+.discount {
+  font-weight: 300;
+  font-size: 14px;
+  text-decoration: line-through;
 }
 
 button {

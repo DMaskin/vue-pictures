@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .menu {
   font-style: normal;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 14px;
   color: #343030;
   gap: 48px;

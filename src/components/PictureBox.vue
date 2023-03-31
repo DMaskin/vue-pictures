@@ -7,7 +7,7 @@
       </v-col>
       <v-spacer/>
     </v-row>
-    <v-row class="">
+    <v-row class="mt-5">
       <v-spacer/>
       <v-col md="8" class="d-flex flex-row justify-space-between">
         <CardComponent/>
@@ -41,7 +41,7 @@ export default {
 h1 {
   font-size: 24px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   color: #343030;
 }
 </style>
