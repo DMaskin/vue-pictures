@@ -10,9 +10,11 @@
     <v-row class="mt-5">
       <v-spacer/>
       <v-col md="8" class="d-flex flex-row justify-space-between">
-        <CardComponent/>
-        <CardComponent/>
-        <CardComponent/>
+        <PictureComponent v-for="picture in getAllPictures"
+                          :key="picture.title"
+                          :picture="picture"
+
+        />
       </v-col>
       <v-spacer/>
     </v-row>
@@ -20,13 +22,25 @@
 </template>
 
 <script>
-import CardComponent from "@/components/CardComponent";
+import PictureComponent from "@/components/PictureComponent";
+import {mapGetters} from "vuex"
 
 export default {
   name: 'HomePage',
-  components: {CardComponent},
-  props: {
-    msg: String
+  components: {PictureComponent},
+  methods: {
+    onClick: function () {
+      alert('click')
+    },
+  },
+  computed: {
+    ...mapGetters(["getPictures", "getQuery"]),
+    getAllPictures() {
+      const query = this.getQuery
+      return query
+          ? this.getPictures.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
+          : this.getPictures
+    }
   }
 }
 </script>

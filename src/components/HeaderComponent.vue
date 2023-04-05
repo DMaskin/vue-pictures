@@ -6,24 +6,38 @@
       </v-col>
       <v-col md="5" class="d-flex align-center justify-center">
         <div class="search">
-          <input type="text" placeholder="Поиск по названию картины"/>
-          <button>Найти</button>
+          <input v-model="query" type="text" placeholder="Поиск по названию картины"/>
+          <button class="commonButton">Найти</button>
         </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-
-
 import MenuComponent from "@/components/MenuComponent";
+import { mapActions } from 'vuex'
 
 export default {
   name: 'HeaderComponent',
   components: {
     MenuComponent
   },
-  props: {}
+  data() {
+    return {
+      query: ""
+    }
+  },
+  methods: {
+    ...mapActions(["setQuery"]),
+    onInputChange() {
+      this.setQuery(this.query)
+    }
+  },
+  watch: {
+    query() {
+      this.onInputChange()
+    }
+  }
 }
 </script>
 
@@ -37,16 +51,6 @@ export default {
 
 .search :focus{
   border: #B5B5B5 solid 1px;
-}
-
-button {
-  width: 122px;
-  height: 48px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  background-color: #403432;
-  color: #fff
 }
 
 input {
